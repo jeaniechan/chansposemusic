@@ -1,0 +1,64 @@
+<!--https://www.earmaster.com/music-theory-online/ch06/chapter-6-4.-->
+<!--https://www.freecodecamp.org/news/build-a-simple-json-api-in-python/-->
+<!--https://stackoverflow.com/questions/42841281/how-to-make-a-button-in-html-that-can-trigger-backend-functions-in-python-->
+<!--https://www.quora.com/How-do-I-get-input-values-from-HTML-page-to-Python-in-a-server-->
+<!DOCTYPE html>
+<html>
+
+<!-- <form action=”” method=”GET”>
+	<label> Username </label>
+	<input type=”text” name=”username” value={{request.form.username}}>
+	<label> Password </label>
+	<input type=”password” name=”password” value={{request.form.password}}>
+	<button type=”submit”> Submit </button>
+</form> -->
+
+{%extends "layout.html"%}
+{% block content %}
+<div class="home">
+     <h1>Home Page</h1>
+    <form action="/output" method="POST" enctype="multipart/form-data">
+	    <label for="newkey">Select the file for the piece (in XML format) you want to transpose!</label>
+	    
+	    <input type="file" id="myfile" name="myfile" value={{request.form.file}}>
+
+	    <br><label for="newkey">Choose the new key:</label>
+		
+			<br><a href="/output"><input type='radio' id='cMam' name='newkey' value='cMam'></a>
+			<label for='cMam'>C Major or A minor</label><br>
+			<a href="/output"><input type='radio' id='c#Mb-m' name='newkey' value='c#Mb-m'></a>
+			<label for='c#Mb-m'>C sharp Major or B flat Minor</label><br>
+			<a href="/output"><input type='radio' id='dMbm' name='newkey' value='dMbm'></a>
+			<label for='dMbm'>D Major or B Minor</label><br>
+			<a href="/output"><input type='radio' id='e-Mcm' name='newkey' value='e-Mcm'></a>
+			<label for='e-Mcm'>E flat Major or C Minor</label><br>
+			<a href="/output"><input type='radio' id='eMc#m' name='newkey' value='eMc#m'></a>
+			<label for='eMc#m'>E Major or C sharp Minor</label><br>
+			<a href="/output"><input type='radio' id='fMdm' name='newkey' value='fMdm'></a>
+			<label for='cMam'>F Major or D Minor</label><br>
+			<a href="/output"><input type='radio' id='f#Me-m' name='newkey' value='f#Me-m'></a>
+			<label for='f#Me-m'>F sharp Major or E flat Minor</label><br>
+			<a href="/output"><input type='radio' id='gMem' name='newkey' value='gMem'></a>
+			<label for='gMem'>G Major or E Minor</label><br>
+			<a href="/output"><input type='radio' id='a-Mfm' name='newkey' value='a-Mfm'></a>
+			<label for='a-Mfm'>A flat Major or F Minor</label><br>
+			<a href="/output"><input type='radio' id='aMf#m' name='newkey' value='aMf#m'></a>
+			<label for='aMf#m'>A Major or F sharp Minor</label><br>
+			<a href="/output"><input type='radio' id='b-Mgm' name='newkey' value='b-Mgm'></a>
+			<label for='b-Mgm'>B flat Major or G Minor</label><br>
+			<a href="/output"><input type='radio' id='bMa-m' name='newkey' value='bMa-m'></a>
+			<label for='bMa-m'>B Major or A flat Minor</label><br>
+			<a href="/output"><input type='submit' value='Done'></a>
+	</form>
+	<!--	<a href="/display"><input type="button" value="Display"></a> -->
+		<!--maybe after they click next the sheet displays? might not need the button?-->
+
+
+
+	     
+
+	     <!--<input type="button" onclick="stream_to_web()" value="Submit"/>-->
+
+</div>
+{%endblock%}
+</html>
