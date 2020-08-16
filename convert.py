@@ -1,15 +1,10 @@
 
-#Website
-#API to connect server+client
-
 import music21 as m
 from music21 import *
 import webbrowser, os, random, pathlib
 import xml.etree.ElementTree as ET
-#from website import *
 
 song = m.converter.parse('convertkey.xml')
-print(song)
 
 osmd_js_file = os.path.join(os.path.dirname(os.path.realpath(__file__)),"opensheetmusicdisplay.min.js.txt")
 
@@ -33,11 +28,7 @@ def transposenotes(song,t):
     	        s = note.Note(getPitch(x));
     	        x.transpose(t,inPlace=True)
     	        listoftransposednotes += [x]
-        print(a)
 
-    print(listoforiginal)
-    print('transposed')
-    print(listoftransposednotes)
 transposenotes(song,t)
 def changekeysig(song,t):
     for keysig in song.recurse().getElementsByClass('KeySignature'):
@@ -79,8 +70,6 @@ def stream_to_web(song):
     osmd_js_path = pathlib.Path(osmd_js_file).as_uri()
 
     filename = song.write('musicxml')
-    print("mysicXML filename:",filename)
-    print(osmd_js_path)
     if filename is not None:
         with open(filename,'r') as f:
             xmldata = f.read()
@@ -100,8 +89,6 @@ def return_xml(file):
     osmd_js_path = pathlib.Path(osmd_js_file).as_uri()
 
     filename = song.write('musicxml')
-    print("mysicXML filename:",filename)
-    print(osmd_js_path)
     if filename is not None:
         with open(filename,'r') as f:
             xmldata = f.read()
